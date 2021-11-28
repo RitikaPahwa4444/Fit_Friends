@@ -14,6 +14,11 @@ class ExerciseActivity : AppCompatActivity() {
     private var exerciseProgress = 0
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
+
+    private var exerciseList : ArrayList<ExerciseModel>? = null
+    private var currentExercisePosition = -1
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
@@ -23,6 +28,8 @@ class ExerciseActivity : AppCompatActivity() {
         if (supportActionBar != null){
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
+
+        exerciseList= Constants.defaultExerciseList()
 
         binding?.toolbarExercise?.setNavigationOnClickListener{
             onBackPressed()
@@ -74,6 +81,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                currentExercisePosition++
                 setupExerciseView()
             }
 
@@ -83,7 +91,7 @@ class ExerciseActivity : AppCompatActivity() {
     private fun setExerciseProgressBar(){
         binding?.progressBarExercise?.progress = exerciseProgress
 
-        exerciseTimer=object : CountDownTimer(10000, 1000){
+        exerciseTimer=object : CountDownTimer(30000, 1000){
             override fun onTick(p0: Long) {
                 exerciseProgress++
                 binding?.progressBarExercise?.progress = 30-exerciseProgress
@@ -92,7 +100,7 @@ class ExerciseActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 Toast.makeText(this@ExerciseActivity,
-                    "30 seconds are over. Good work!! ",
+                    "One exercise over. Good work!! 😎 ",
                     Toast.LENGTH_SHORT).show()
             }
 
