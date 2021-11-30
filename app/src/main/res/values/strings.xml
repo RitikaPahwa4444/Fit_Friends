@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fit Friends</string>
+    <string name="game_play">You have successfully completed all the exercises. Do you wish to play a game? 😁</string>
 </resources>

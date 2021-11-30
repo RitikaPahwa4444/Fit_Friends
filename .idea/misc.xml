@@ -9,8 +9,12 @@
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/drawable/item_circular_color_accent_backgroung.xml" value="0.14074074074074075" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/drawable/item_circular_color_accent_border.xml" value="0.14074074074074075" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/drawable/item_color_accent_border_ripple_background.xml" value="0.14074074074074075" />
-        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_exercise.xml" value="0.1" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_custom_board.xml" value="0.23645833333333333" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_exercise.xml" value="0.264" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_game.xml" value="0.23645833333333333" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_game_play.xml" value="0.23645833333333333" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_results.xml" value="0.23645833333333333" />
       </map>
     </option>
   </component>
