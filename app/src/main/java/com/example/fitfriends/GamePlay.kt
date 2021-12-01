@@ -366,7 +366,7 @@ class GamePlay : AppCompatActivity() {
             }
             binding?.timer?.stop()
 
-            val intent= Intent(this, results::class.java).apply{
+            val intent= Intent(this, Result::class.java).apply{
                 putExtra("result","Congratulations 😎 \nYOU WON")
             }
             startActivity(intent)
@@ -382,7 +382,7 @@ class GamePlay : AppCompatActivity() {
             sharedPreferences.edit().putString("Last", currentTime).apply()
             //timer.stop()
 
-            val intent = Intent(this, results::class.java).apply {
+            val intent = Intent(this, Result::class.java).apply {
                 putExtra("result", "You Lost\nTry Again")
             }
             startActivity(intent)
@@ -391,8 +391,8 @@ class GamePlay : AppCompatActivity() {
 
     //We are giving the lastGameTime and fastestTime to the main activity for Display
     private fun toMainActivity(){
-        Log.d("MainActivity", "inside main $fastestTime $lastGameTime")
-        val intent = Intent(this@GamePlay, MainActivity::class.java)
+        Log.d("GameActivity", "inside main $fastestTime $lastGameTime")
+        val intent = Intent(this@GamePlay, GameActivity::class.java)
         intent.putExtra("Best", fastestTime)
         intent.putExtra("Last", lastGameTime)
         startActivity(intent)

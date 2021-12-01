@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitFriends">
         <activity
+            android:name=".Result"
+            android:exported="false" />
+        <activity
             android:name=".GamePlay"
             android:exported="false" />
         <activity
