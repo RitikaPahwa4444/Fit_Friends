@@ -28,6 +28,9 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        binding?.quit?.setOnClickListener {
+            finish()
+        }
 
 
     }

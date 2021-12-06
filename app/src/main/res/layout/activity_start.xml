@@ -62,6 +62,7 @@
             android:fontFamily="@font/audiowide"
             android:textSize="30dp"></Button>
         <Button
+            android:id="@+id/quit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded"
