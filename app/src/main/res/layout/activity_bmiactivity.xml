@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BMIActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOUR BMI"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:fontFamily="@font/audiowide"
+        android:textStyle="bold"></TextView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bmi"></ImageView>
+
+
+   <TextView
+       android:id="@+id/bmi"
+       android:text="20"
+       android:gravity="center"
+       android:layout_marginTop="10dp"
+       android:textSize="20dp"
+       android:fontFamily="@font/audiowide"
+       android:layout_height="wrap_content"
+       android:layout_width="match_parent"/>
+    <TextView
+        android:id="@+id/bmiDesc"
+        android:text="Normal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:fontFamily="@font/audiowide"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/Grey"
+        android:padding="10dp"
+        android:background="@drawable/rounded"
+        android:fontFamily="@font/audiowide"></Button>
+
+</LinearLayout>

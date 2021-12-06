@@ -8,6 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="Pink">#FC5185</color>
+    <color name="LightBlue">#3FC1C9</color>
+    <color name="DarkBlue">#364F6B</color>
+    <color name="Grey">#F5F5F5</color>
+
+
+
     <color name="colorPrimaryVariant">#FF3700B3</color>
     <color name="colorAccent">#FF03DAC5</color>
 </resources>
