@@ -12,42 +12,27 @@
         android:id="@+id/toolbar_finish_activity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#FFFFFF" />
+        android:background="@color/Grey" />
 
-    <TextView
-        android:id="@+id/tvEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="END"
-        android:textColor="@color/colorAccent"
-        android:textSize="35sp" />
 
-    <LinearLayout
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/item_circular_color_accent_border"
-        android:gravity="center">
 
-        <!--Here the ic_action_done image in added in the drawables folders.-->
 
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Congratulations!"
-        android:textColor="#212121"
-        android:textSize="18sp" />
+        android:fontFamily="@font/audiowide"
+        android:textColor="@color/Pink"
+        android:textSize="25sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You have done the workout!"
-        android:textColor="#212121"
+        android:fontFamily="@font/audiowide"
+        android:text="You have completed the exercises\nYou can play the game now"
+        android:textColor="@color/DarkBlue"
         android:textSize="18sp" />
 
     <Button
@@ -55,10 +40,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginTop="35dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="FINISH"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:layout_margin="20dp"
+      android:fontFamily="@font/audiowide"
+        android:text="Play game"
+        android:background="@drawable/rounded"
+        android:textColor="@color/Grey"
+        android:textSize="30dp" />
 
 </LinearLayout>

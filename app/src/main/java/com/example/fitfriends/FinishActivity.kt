@@ -1,6 +1,7 @@
 package com.example.fitfriends
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,7 +26,8 @@ class FinishActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding?.btnFinish?.setOnClickListener {
-            finish()
+            val intent= Intent(this, GameActivity::class.java)
+            startActivity(intent)
         }
 
         //get the dao through the database in the application class

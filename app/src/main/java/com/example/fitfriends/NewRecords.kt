@@ -16,10 +16,10 @@ class NewRecords : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewRecordsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        binding?.bmiChecker?.setOnClickListener {
-            val intent= Intent(this, BMIActivity::class.java)
-            startActivity(intent)
-        }
+//        binding?.bmiChecker?.setOnClickListener {
+//            val intent= Intent(this, BMIActivity::class.java)
+//            startActivity(intent)
+//        }
         setSupportActionBar(binding?.toolbarHistoryActivity)
 
         val actionbar = supportActionBar//actionbar
