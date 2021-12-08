@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitFriends">
         <activity
+            android:name=".memory.MemoryGame"
+            android:exported="false" />
+        <activity
+            android:name=".memory.MemoryGameStart"
+            android:exported="false" />
+        <activity
             android:name=".FinishActivity"
             android:exported="true" />
         <activity
@@ -22,18 +28,7 @@
         <activity
             android:name=".StartActivity"
             android:exported="true" />
-        <activity
-            android:name=".Result"
-            android:exported="false" />
-        <activity
-            android:name=".GamePlay"
-            android:exported="false" />
-        <activity
-            android:name=".CustomBoard"
-            android:exported="false" />
-        <activity
-            android:name=".GameActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ExerciseActivity"
             android:screenOrientation="portrait"

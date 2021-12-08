@@ -46,6 +46,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 //  binding?.flProgressBar?.visibility= View.INVISIBLE
         setupRestView()
         setUpExerciseStatusRV()
+
     }
     private fun setUpExerciseStatusRV(){
         binding?.rvExerciseStatus?.layoutManager=LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -202,7 +203,5 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     private fun speakOut(text:String){
         tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, " ")
     }
-
-
 
 }
