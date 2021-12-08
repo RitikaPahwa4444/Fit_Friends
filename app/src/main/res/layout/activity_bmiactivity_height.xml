@@ -36,6 +36,7 @@
      <com.google.android.material.textfield.TextInputEditText
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
+         android:id="@+id/height"
          android:layout_marginTop="10dp"
          android:hint="Height"></com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -44,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
+        android:id="@+id/nextBtn"
         android:textColor="@color/Grey"
         android:padding="10dp"
         android:background="@drawable/rounded"
