@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.example.fitfriends.databinding.ActivityFinishBinding
+import com.example.fitfriends.memory.MemoryGameStart
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,7 +27,7 @@ class FinishActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding?.btnFinish?.setOnClickListener {
-            val intent= Intent(this, GameActivity::class.java)
+            val intent= Intent(this, MemoryGameStart::class.java)
             startActivity(intent)
         }
 
