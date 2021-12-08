@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Grey">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FIT FRIENDS"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textColor="@color/DarkBlue"
+            android:textStyle="bold"
+            android:fontFamily="@font/audiowide"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/DarkBlue"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/audiowide"
+            android:text="Developed by:\n\nRitika Pahwa\n(Enrolment Number 04701012020)\n\nSaumya\n(Enrolment Number 09501012020)"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/DarkBlue"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/audiowide"
+            android:text="References:\n\n✨ https://www.youtube.com/watch?v=oc4QS2USKmk\n\n✨https://github.com/tutorialseu/7MinutesWorkoutApp"></TextView>
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/rounded"
+            android:text="BACK"
+            android:textColor="@color/Grey"
+            android:textSize="30dp"
+            android:fontFamily="@font/audiowide"/>
+    </LinearLayout>
+
+</ScrollView>

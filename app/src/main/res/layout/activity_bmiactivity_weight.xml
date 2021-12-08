@@ -38,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:id="@+id/weight"
             android:hint="Weight"></com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
@@ -46,6 +47,7 @@
         android:text="CALCULATE"
         android:textColor="@color/Grey"
         android:padding="10dp"
+        android:id="@+id/calculate"
         android:background="@drawable/rounded"
         android:fontFamily="@font/audiowide"></Button>
 

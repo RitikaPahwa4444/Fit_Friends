@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,27 +9,27 @@
 
 
     tools:context=".MainActivity">
-    <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
         <ImageView
             android:src="@drawable/logo"
-
+            app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/iv"
-
             android:layout_width="match_parent"
             android:layout_height="250dp"></ImageView>
         <FrameLayout
             android:id="@+id/flStart"
             android:foregroundGravity="center"
+            app:layout_constraintTop_toBottomOf="@id/iv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
 
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/item_color_border_ripple">
 
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -39,18 +39,27 @@
                 android:text="START" />
         </FrameLayout>
 
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rounded"
-    android:text="New Records"
-    android:layout_marginTop="40dp"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:textColor="@color/Grey"
-    android:fontFamily="@font/audiowide"
-    android:textSize="30dp"></Button>
         <Button
+            android:id="@+id/NewRecordsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rounded"
+            android:fontFamily="@font/audiowide"
+            android:text="New Records"
+            android:textColor="@color/Grey"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/flStart"></Button>
+
+        <Button
+            android:id="@+id/aboutBtn"
+            app:layout_constraintTop_toBottomOf="@id/NewRecordsBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded"
@@ -61,23 +70,26 @@
             android:textColor="@color/Grey"
             android:fontFamily="@font/audiowide"
             android:textSize="30dp"></Button>
+
         <Button
             android:id="@+id/quit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded"
-            android:text="QUIT"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="30dp"
+
+            android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
-            android:textColor="@color/Grey"
-            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded"
             android:fontFamily="@font/audiowide"
-            android:textSize="30dp"></Button>
+
+            android:text="QUIT"
+            android:textColor="@color/Grey"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aboutBtn"
+            app:layout_constraintVertical_bias="0.0"></Button>
 
 
-
-    </LinearLayout>
-
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

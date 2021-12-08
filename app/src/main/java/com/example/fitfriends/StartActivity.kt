@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.example.fitfriends.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
@@ -28,8 +29,20 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        binding?.NewRecordsBtn?.setOnClickListener {
+            val intent=Intent(this, NewRecords::class.java)
+            startActivity(intent)
+            finish()
+        }
         binding?.quit?.setOnClickListener {
             finish()
+        }
+        binding?.aboutBtn?.setOnClickListener {
+            setContentView(R.layout.about_screen)
+            val back: Button =findViewById(R.id.backBtn)
+            back.setOnClickListener {
+                setContentView(binding?.root)
+            }
         }
 
 

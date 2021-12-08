@@ -7,11 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitfriends.databinding.ActivityExerciseBinding
 import com.example.sevenminuteworkout.ExerciseStatusAdapter
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -32,14 +36,14 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         setContentView(binding?.root)
         setSupportActionBar(binding?.toolbarExercise)
         if(supportActionBar!=null){
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+           supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
-        binding?.toolbarExercise?.setNavigationOnClickListener {
-        //    customDialogForBackBtn()
-        }
+//        binding?.toolbarExercise?.setNavigationOnClickListener {
+//        //    customDialogForBackBtn()
+//        }
         exerciseList=Constants.defaultExerciseList()
         tts= TextToSpeech(this, this)
-//        binding?.flProgressBar?.visibility= View.INVISIBLE
+//  binding?.flProgressBar?.visibility= View.INVISIBLE
         setupRestView()
         setUpExerciseStatusRV()
     }
@@ -63,7 +67,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         }
 
         binding?.flProgressBar?.visibility=View.VISIBLE
-        binding?.tvTitle?.visibility=View.VISIBLE
+      binding?.tvTitle?.visibility=View.VISIBLE
         binding?.tvExercise?.visibility=View.INVISIBLE
         binding?.rvExerciseStatus?.visibility=View.INVISIBLE
         binding?.ivImage?.visibility=View.INVISIBLE
@@ -94,7 +98,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             e.printStackTrace()
         }
         binding?.flProgressBar?.visibility=View.INVISIBLE
-        binding?.tvTitle?.visibility=View.INVISIBLE
+       binding?.tvTitle?.visibility=View.INVISIBLE
         binding?.tvExercise?.visibility=View.VISIBLE
         binding?.ivImage?.visibility=View.VISIBLE
         binding?.flExerciseView?.visibility=View.VISIBLE
@@ -116,7 +120,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 
 
         binding?.progressBar?.progress=restProgress
-        restTimer=object:CountDownTimer(1000,1000){
+        restTimer=object:CountDownTimer(10000,1000){
             override fun onTick(p0: Long) {
                 restProgress++
                 binding?.progressBar?.progress=10-restProgress
@@ -133,35 +137,35 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         }.start()
 
     }
-    private fun setExerciseProgressBar(){
-        binding?.progressBarExercise?.progress=exerciseProgress
-        exerciseTimer=object:CountDownTimer(3000,1000){
+    private fun setExerciseProgressBar() {
+        binding?.progressBarExercise?.progress = exerciseProgress
+        exerciseTimer = object : CountDownTimer(30000, 1000) {
             override fun onTick(p0: Long) {
                 exerciseProgress++
-                binding?.progressBarExercise?.progress=30-exerciseProgress
-                binding?.tvTimerExercise?.text=(30-exerciseProgress).toString()
+                binding?.progressBarExercise?.progress = 30 - exerciseProgress
+                binding?.tvTimerExercise?.text = (30 - exerciseProgress).toString()
             }
 
             override fun onFinish() {
 
-                if(currentExercisePosition<exerciseList?.size!!-1){
+                if (currentExercisePosition < exerciseList?.size!! - 1) {
                     exerciseList!![currentExercisePosition].setIsSelected(false)
                     exerciseList!![currentExercisePosition].setIsCompleted(true)
                     exerciseAdapter!!.notifyDataSetChanged()
                     setupRestView()
-                }
-
-                else{
+                } else {
                     Toast.makeText(this@ExerciseActivity, "Congrats", Toast.LENGTH_LONG).show()
-                    val intent=Intent(this@ExerciseActivity, GameActivity::class.java)
+
+                    val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
             }
-
         }.start()
-
     }
+
+
+
     override fun onDestroy() {
         super.onDestroy()
         if(restTimer!=null)
