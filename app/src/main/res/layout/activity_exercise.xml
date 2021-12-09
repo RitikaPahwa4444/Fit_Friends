@@ -12,6 +12,7 @@
         app:titleTextColor="@color/DarkBlue"
         android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
         android:layout_width="match_parent"
+        android:backgroundTint="@color/Pink"
         android:layout_height="?android:attr/actionBarSize"></androidx.appcompat.widget.Toolbar>
     <TextView
         android:id="@+id/tv_title"
