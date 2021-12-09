@@ -155,7 +155,8 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
                     exerciseAdapter!!.notifyDataSetChanged()
                     setupRestView()
                 } else {
-                    Toast.makeText(this@ExerciseActivity, "Congrats", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@ExerciseActivity, "Congratulations!!", Toast.LENGTH_LONG)
+                        .show()
 
                     val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
                     startActivity(intent)

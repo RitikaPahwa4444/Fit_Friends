@@ -1,5 +1,6 @@
 package com.example.fitfriends.memory
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
@@ -53,6 +54,17 @@ class MemoryGame : AppCompatActivity() {
             }
             button?.setImageResource(if (card.isFaceUp) card.identifier else R.drawable.ic_code)
         }
+        var count = 0
+        for (card in cards){
+            if (card.isMatched){
+                count++
+            }
+        }
+        if (count == cards.size){
+            Toast.makeText(this@MemoryGame, "Congratulations! You won 😎", Toast.LENGTH_LONG ).show()
+            val intent = Intent(this, EndActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun updateModels(position: Int) {
@@ -76,6 +88,7 @@ class MemoryGame : AppCompatActivity() {
             indexOfSingleSelectedCard = null
         }
         card.isFaceUp = !card.isFaceUp
+
     }
     private fun restoreCards() {
         for (card in cards) {
@@ -87,7 +100,6 @@ class MemoryGame : AppCompatActivity() {
 
     private fun checkForMatch(pos1: Int, pos2: Int) {
         if (cards[pos1].identifier == cards[pos2].identifier) {
-            Toast.makeText(this, "Match found!! 😎", Toast.LENGTH_SHORT).show()
             cards[pos1].isMatched = true
             cards[pos2].isMatched = true
         }
