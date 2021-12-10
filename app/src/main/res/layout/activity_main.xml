@@ -5,12 +5,13 @@
     android:background="#F5F5F5"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <ImageView
         android:id="@+id/logo"
 
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/logo"></ImageView>
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/name"
@@ -22,5 +23,5 @@
         android:text="FIT FRIENDS"
         android:textColor="@color/black"
         android:textSize="50dp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold" />
 </LinearLayout>
