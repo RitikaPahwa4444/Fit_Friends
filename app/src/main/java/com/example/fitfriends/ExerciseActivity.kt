@@ -7,15 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitfriends.databinding.ActivityExerciseBinding
 import com.example.sevenminuteworkout.ExerciseStatusAdapter
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -45,14 +41,13 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         tts= TextToSpeech(this, this)
 //  binding?.flProgressBar?.visibility= View.INVISIBLE
         setupRestView()
-        setUpExerciseStatusRV()
+        setRecyclerViewExerciseStatus()
 
     }
-    private fun setUpExerciseStatusRV(){
+    private fun setRecyclerViewExerciseStatus(){
         binding?.recyclerViewExerciseStatus?.layoutManager=LinearLayoutManager(this,
         LinearLayoutManager.HORIZONTAL, false)
-//        binding?.recycler_view_exercise_status?.layoutManager=LinearLayoutManager(this,
-//            LinearLayoutManager.HORIZONTAL, false)
+
         exerciseAdapter= ExerciseStatusAdapter(exerciseList!!)
         binding?.recyclerViewExerciseStatus?.adapter=exerciseAdapter
     }
@@ -85,7 +80,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             restTimer?.cancel()
             restProgress=0
         }
-        setRestProgressBar()
+        setupProgressForRest()
     }
 
     private fun setupExerciseView(){
@@ -118,10 +113,9 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         speakOut(exerciseList!![currentExercisePosition].getName())
         binding?.imageViewExercise?.setImageResource(exerciseList!![currentExercisePosition].getImage())
         binding?.textViewExercise?.text=exerciseList!![currentExercisePosition].getName()
-        setExerciseProgressBar()
+        setupExerciseProgress()
     }
-    private fun setRestProgressBar(){
-
+    private fun setupProgressForRest(){
 
         binding?.progressBarReady?.progress=restProgress
         restTimer=object:CountDownTimer(10000,1000){
@@ -141,7 +135,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         }.start()
 
     }
-    private fun setExerciseProgressBar() {
+    private fun setupExerciseProgress() {
         binding?.progressBarExercise?.progress = exerciseProgress
         exerciseTimer = object : CountDownTimer(30000, 1000) {
             override fun onTick(p0: Long) {
@@ -168,7 +162,6 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             }
         }.start()
     }
-
 
 
     override fun onDestroy() {
