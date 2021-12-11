@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitfriends.databinding.ActivityNewRecordsBinding
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class NewRecords : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewRecordsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        setSupportActionBar(binding?.toolbarHistoryActivity)
+        setSupportActionBar(binding?.newRecordsToolbar)
 
         val actionbar = supportActionBar//actionbar
         if (actionbar != null) {
@@ -25,7 +26,7 @@ class NewRecords : AppCompatActivity() {
             actionbar.title = "NEW RECORDS" // Setting a title in the action bar.
         }
 
-        binding?.toolbarHistoryActivity?.setNavigationOnClickListener {
+        binding?.newRecordsToolbar?.setNavigationOnClickListener {
             val intent=Intent(this, StartActivity::class.java)
             startActivity(intent)
             finish()
@@ -43,7 +44,7 @@ class NewRecords : AppCompatActivity() {
 
                 if (allDatesList.isNotEmpty()) {
                     // Here if the List size is greater then 0 we will display the item in the recycler view or else we will show the text view that no data is available.
-                    binding?.tvHistory?.visibility = View.VISIBLE
+              //      binding?.newRecordsTV?.visibility = View.VISIBLE
                     binding?.rvHistory?.visibility = View.VISIBLE
                     binding?.tvNoDataAvailable?.visibility = View.GONE
 
@@ -57,10 +58,9 @@ class NewRecords : AppCompatActivity() {
                     }
                     val historyAdapter = NewRecordsAdapter(ArrayList(dates))
 
-                    // Access the RecyclerView Adapter and load the data into it
                     binding?.rvHistory?.adapter = historyAdapter
                 } else {
-                    binding?.tvHistory?.visibility = View.GONE
+              //      binding?.newRecordsTV?.visibility = View.GONE
                     binding?.rvHistory?.visibility = View.GONE
                     binding?.tvNoDataAvailable?.visibility = View.VISIBLE
                 }

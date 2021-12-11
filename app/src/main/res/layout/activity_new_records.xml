@@ -7,38 +7,29 @@
     tools:context=".NewRecords">
     <androidx.appcompat.widget.Toolbar
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/toolbar_history_activity"
+        android:id="@+id/new_records_toolbar"
         android:layout_width="match_parent"
       app:titleTextColor="@color/Grey"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/DarkBlue" />
 
 
-    <TextView
-        app:layout_constraintTop_toBottomOf="@id/toolbar_history_activity"
-        android:id="@+id/tvHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:fontFamily="@font/audiowide"
-        android:textColor="@color/Pink"
-        android:text="EXERCISES COMPLETED"
-        android:textSize="18sp"
-        android:visibility="gone"
-        tools:visibility="visible" />
+
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@id/tvHistory"
         android:id="@+id/rvHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="80dp"
         android:visibility="gone"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/new_records_toolbar"
         tools:visibility="visible" />
 
+
     <TextView
-        app:layout_constraintTop_toBottomOf="@id/toolbar_history_activity"
+        app:layout_constraintTop_toBottomOf="@id/new_records_toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/tvNoDataAvailable"
         android:layout_width="match_parent"
