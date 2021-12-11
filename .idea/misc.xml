@@ -28,9 +28,14 @@
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_end.xml" value="0.264" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_exercise.xml" value="0.23645833333333333" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_finish.xml" value="0.23645833333333333" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_game.xml" value="0.10104166666666667" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_game_play.xml" value="0.10104166666666667" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_memory_game.xml" value="0.23645833333333333" />
         <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_memory_game_start.xml" value="0.264" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_result.xml" value="0.10104166666666667" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/activity_start.xml" value="0.10104166666666667" />
+        <entry key="..\:/projects/Fit_Friends/app/src/main/res/layout/item_exercise_status.xml" value="0.23645833333333333" />
       </map>
     </option>
   </component>
