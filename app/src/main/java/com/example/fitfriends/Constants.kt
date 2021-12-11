@@ -1,8 +1,10 @@
 package com.example.fitfriends
-
+/*
+* This file contains an object defining the list of exercises to be performed
+*/
 object Constants {
-    fun defaultExerciseList() : ArrayList<ExerciseModel>{
-        val exerciseList = ArrayList<ExerciseModel>()
+    fun ListOfExercises() : ArrayList<ExerciseModel>{
+        val listofExercises = ArrayList<ExerciseModel>()
         val backTurns = ExerciseModel(
             1,
             "Back Turns",
@@ -10,7 +12,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(backTurns)
+        listofExercises.add(backTurns)
         val jumpingJacks = ExerciseModel(
             2,
             "Jumping Jacks",
@@ -18,7 +20,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(jumpingJacks)
+        listofExercises.add(jumpingJacks)
         val sideBends = ExerciseModel(
             3,
             "Side Bends",
@@ -26,7 +28,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(sideBends)
+        listofExercises.add(sideBends)
         val sideDeepSquats = ExerciseModel(
             4,
             "Side Deep Squats",
@@ -34,7 +36,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(sideDeepSquats)
+        listofExercises.add(sideDeepSquats)
         val skipHops = ExerciseModel(
             5,
             "Skip Hops",
@@ -42,7 +44,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(skipHops)
+        listofExercises.add(skipHops)
         val prayerPush = ExerciseModel(
             6,
             "Prayer Pushes",
@@ -50,7 +52,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(prayerPush)
+        listofExercises.add(prayerPush)
         val legraises = ExerciseModel(
             7,
             "Side Leg Raises",
@@ -58,7 +60,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(legraises)
+        listofExercises.add(legraises)
         val stepBackJacks = ExerciseModel(
             8,
             "Step Back Jacks",
@@ -66,7 +68,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(stepBackJacks)
+        listofExercises.add(stepBackJacks)
         val kneeRaises = ExerciseModel(
             9,
             "Knee Raises",
@@ -74,8 +76,7 @@ object Constants {
             false,
             false
         )
-        exerciseList.add(kneeRaises)
-
-        return exerciseList
+        listofExercises.add(kneeRaises)
+        return listofExercises
     }
 }

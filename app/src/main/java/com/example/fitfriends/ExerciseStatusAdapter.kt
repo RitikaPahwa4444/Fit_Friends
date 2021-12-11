@@ -1,4 +1,4 @@
-package com.example.sevenminuteworkout
+package com.example.fitfriends
 
 import android.graphics.Color
 import android.view.LayoutInflater

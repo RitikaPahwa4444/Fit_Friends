@@ -1,5 +1,7 @@
 package com.example.fitfriends
-
+/**
+ * This class is a model class and acts as a template for the list of exercises to be displayed
+ **/
 class ExerciseModel (
     private var id: Int,
     private var name:String,
@@ -9,9 +11,6 @@ class ExerciseModel (
     ){
     fun getId(): Int {
         return id
-    }
-    fun setId(id: Int){
-        this.id = id
     }
     fun getIsCompleted():Boolean{
         return isCompleted
@@ -33,8 +32,5 @@ class ExerciseModel (
     }
     fun getImage():Int{
         return image
-    }
-    fun setImage(image: Int){
-        this.image = image
     }
 }

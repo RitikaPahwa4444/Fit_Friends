@@ -31,7 +31,7 @@ class MemoryGame : AppCompatActivity() {
         images.shuffle()
 
         //Making memory card model for each index of buttons
-        cards = buttons?.indices.map { index->
+        cards = buttons.indices.map { index->
             MemoryCard(images[index])
         }
 
@@ -64,6 +64,7 @@ class MemoryGame : AppCompatActivity() {
             Toast.makeText(this@MemoryGame, "Congratulations! You won 😎", Toast.LENGTH_LONG ).show()
             val intent = Intent(this, EndActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

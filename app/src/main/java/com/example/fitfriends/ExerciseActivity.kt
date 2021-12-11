@@ -7,15 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
-import android.util.Log
+
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitfriends.databinding.ActivityExerciseBinding
-import com.example.sevenminuteworkout.ExerciseStatusAdapter
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
+
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -41,7 +39,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 //        binding?.toolbarExercise?.setNavigationOnClickListener {
 //        //    customDialogForBackBtn()
 //        }
-        exerciseList=Constants.defaultExerciseList()
+        exerciseList=Constants.ListOfExercises()
         tts= TextToSpeech(this, this)
 //  binding?.flProgressBar?.visibility= View.INVISIBLE
         setupRestView()

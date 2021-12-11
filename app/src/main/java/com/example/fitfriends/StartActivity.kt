@@ -5,8 +5,13 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.fitfriends.databinding.ActivityStartBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
 class StartActivity : AppCompatActivity() {
@@ -36,9 +41,9 @@ class StartActivity : AppCompatActivity() {
         */
         binding?.StartFL?.setOnClickListener {
 
-            val intent = Intent(this, ExerciseActivity::class.java)
-            startActivity(intent)
-            finish()
+                val intent = Intent(this, ExerciseActivity::class.java)
+                startActivity(intent)
+                finish()
         }
         /*
         * Display records set by the kid
@@ -62,6 +67,7 @@ class StartActivity : AppCompatActivity() {
             }
         }
     }
+
 
     /*
     * This function sets binding to null to prevent memory leakage and stop the background sound

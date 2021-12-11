@@ -14,6 +14,7 @@ class MemoryGameStart : AppCompatActivity() {
         memoryGameStart.setOnClickListener {
             val intent = Intent(this, MemoryGame::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
