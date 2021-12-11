@@ -8,25 +8,22 @@ import androidx.room.RoomDatabase
 @Database(entities = [NewRecordsEntity::class],version = 1)
 abstract class NewRecordsDatabase:RoomDatabase() {
     abstract fun newRecordsDao(): NewRecordsDao
-
     companion object {
         @Volatile
         private var INSTANCE: NewRecordsDatabase? = null
-
-
         fun getInstance(context: Context): NewRecordsDatabase {
             synchronized(this) {
-                var instance = INSTANCE
-                if (instance == null) {
-                    instance = Room.databaseBuilder(
+                var newInstance = INSTANCE
+                if (newInstance == null) {
+                    newInstance = Room.databaseBuilder(
                         context.applicationContext,
                         NewRecordsDatabase::class.java,
                         "new-records-database"
                     ).fallbackToDestructiveMigration()
                         .build()
-                    INSTANCE = instance
+                    INSTANCE = newInstance
                 }
-                return instance
+                return newInstance
             }
         }
     }

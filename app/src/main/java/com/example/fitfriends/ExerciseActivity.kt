@@ -11,7 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitfriends.databinding.ActivityExerciseBinding
-import com.example.sevenminuteworkout.ExerciseStatusAdapter
+import com.example.fitfriends.ExerciseStatusAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -30,14 +30,14 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         super.onCreate(savedInstanceState)
         binding= ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        setSupportActionBar(binding?.toolbarExercise)
-        if(supportActionBar!=null){
-           supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
+//        setSupportActionBar(binding?.toolbarExercise)
+//        if(supportActionBar!=null){
+//           supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        }
 //        binding?.toolbarExercise?.setNavigationOnClickListener {
 //        //    customDialogForBackBtn()
 //        }
-        exerciseList=Constants.defaultExerciseList()
+        exerciseList=Constants.ListOfExercises()
         tts= TextToSpeech(this, this)
 //  binding?.flProgressBar?.visibility= View.INVISIBLE
         setupRestView()
@@ -118,7 +118,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     private fun setupProgressForRest(){
 
         binding?.progressBarReady?.progress=restProgress
-        restTimer=object:CountDownTimer(10000,1000){
+        restTimer=object:CountDownTimer(1000,1000){
             override fun onTick(p0: Long) {
                 restProgress++
                 binding?.progressBarReady?.progress=10-restProgress
@@ -137,7 +137,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     }
     private fun setupExerciseProgress() {
         binding?.progressBarExercise?.progress = exerciseProgress
-        exerciseTimer = object : CountDownTimer(30000, 1000) {
+        exerciseTimer = object : CountDownTimer(3000, 1000) {
             override fun onTick(p0: Long) {
                 exerciseProgress++
                 binding?.progressBarExercise?.progress = 30 - exerciseProgress

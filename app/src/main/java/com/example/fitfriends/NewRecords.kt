@@ -16,16 +16,12 @@ class NewRecords : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewRecordsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-//        binding?.bmiChecker?.setOnClickListener {
-//            val intent= Intent(this, BMIActivity::class.java)
-//            startActivity(intent)
-//        }
         setSupportActionBar(binding?.toolbarHistoryActivity)
 
         val actionbar = supportActionBar//actionbar
         if (actionbar != null) {
             actionbar.setDisplayHomeAsUpEnabled(true) //set back button
-            actionbar.title = "HISTORY" // Setting a title in the action bar.
+            actionbar.title = "NEW RECORDS" // Setting a title in the action bar.
         }
 
         binding?.toolbarHistoryActivity?.setNavigationOnClickListener {
@@ -40,7 +36,7 @@ class NewRecords : AppCompatActivity() {
 
 
         lifecycleScope.launch {
-            newRecordsDao.fetchALlDates().collect { allCompletedDatesList ->
+            newRecordsDao.getDates().collect { allCompletedDatesList ->
 
                 if (allCompletedDatesList.isNotEmpty()) {
                     // Here if the List size is greater then 0 we will display the item in the recycler view or else we will show the text view that no data is available.
