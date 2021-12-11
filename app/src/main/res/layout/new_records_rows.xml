@@ -4,7 +4,7 @@
     android:id="@+id/ll_history_item_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#EBEBEB"
+    android:background="@color/LightBlue"
     android:orientation="horizontal"
     android:padding="15dp">
 
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="#212121"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:text="1" />
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:textColor="#212121"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:text="DATE" />

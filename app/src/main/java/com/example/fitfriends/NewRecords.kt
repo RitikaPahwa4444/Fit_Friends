@@ -1,6 +1,7 @@
 package com.example.fitfriends
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -25,20 +26,22 @@ class NewRecords : AppCompatActivity() {
         }
 
         binding?.toolbarHistoryActivity?.setNavigationOnClickListener {
-            onBackPressed()
+            val intent=Intent(this, StartActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         val dao = (application as FitFriendsApp).db.newRecordsDao()
-        getAllCompletedDates(dao)
+        getDates(dao)
     }
 
-    private fun getAllCompletedDates(newRecordsDao: NewRecordsDao) {
+    private fun getDates(newRecordsDao: NewRecordsDao) {
 
 
         lifecycleScope.launch {
-            newRecordsDao.getDates().collect { allCompletedDatesList ->
+            newRecordsDao.getDates().collect { allDatesList ->
 
-                if (allCompletedDatesList.isNotEmpty()) {
+                if (allDatesList.isNotEmpty()) {
                     // Here if the List size is greater then 0 we will display the item in the recycler view or else we will show the text view that no data is available.
                     binding?.tvHistory?.visibility = View.VISIBLE
                     binding?.rvHistory?.visibility = View.VISIBLE
@@ -49,7 +52,7 @@ class NewRecords : AppCompatActivity() {
 
                     // History adapter is initialized and the list is passed in the param.
                     val dates = ArrayList<String>()
-                    for (date in allCompletedDatesList) {
+                    for (date in allDatesList) {
                         dates.add(date.date)
                     }
                     val historyAdapter = NewRecordsAdapter(ArrayList(dates))

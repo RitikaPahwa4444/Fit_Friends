@@ -24,7 +24,7 @@ class NewRecordsAdapter(private val items: ArrayList<String>) :
         // Updating the background color according to the odd/even positions in list.
         if (position % 2 == 0) {
             holder.llHistoryItemMain.setBackgroundColor(
-                Color.parseColor("#EBEBEB")
+                Color.parseColor("#3FC1C9")
             )
         } else {
             holder.llHistoryItemMain.setBackgroundColor(

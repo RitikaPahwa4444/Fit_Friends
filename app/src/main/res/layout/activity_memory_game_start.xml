@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Pink"
+    android:background="@color/Grey"
     tools:context=".memory.MemoryGameStart">
 
     <TextView
@@ -44,7 +44,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@drawable/item_color_border_ripple"
-        android:backgroundTint="@color/teal_200"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
