@@ -49,7 +49,7 @@ class MemoryGame : AppCompatActivity() {
             val button = buttons[index]
             // If the cards are matched, fade the views
             if (card.isMatched) {
-                button?.alpha = 0.01f
+                button?.alpha = 0.5f
             }
             button?.setImageResource(if (card.isRevealed) card.id else unknown_image_code)
         }
