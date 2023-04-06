@@ -13,19 +13,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.fitfriends.databinding.ActivityMainBinding
 
-/*
+/**
 * ANIMATED SPLASH SCREEN
 * This activity uses catchy sounds and animations and appears as soon as the app is opened.
-*/
+**/
 class MainActivity : AppCompatActivity() {
     private var soundPlayer: MediaPlayer?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        /*
+        /**
         * SOUND PLAYER 
         * Play sounds as soon as the app is opened
-        */
+        **/
         try {
             val soundURI= Uri.parse(
                 "android.resource://com.example.fitfriends/"+R.raw.app_start)
@@ -35,12 +35,12 @@ class MainActivity : AppCompatActivity() {
         }catch (e:Exception){
             e.printStackTrace()
         }
-        //Remove the notification bar
+        // Remove the notification bar
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        /*
+        /**
         * ANIMATIONS
         * Set animations for the activity
-        */
+        **/
         val AnimateTheTop: Animation
         val AnimateTheBottom:Animation
         AnimateTheBottom= AnimationUtils.loadAnimation(this,R.anim.bottom_animation)
@@ -57,9 +57,9 @@ class MainActivity : AppCompatActivity() {
         }, 2000)
     }
 
-    /*
-      * This function stops the sound player so that the sounds are not played once this activity is over.
-      */
+        /**
+        * This function stops the sound player so that the sounds are not played once this activity is over.
+        **/
     override fun onDestroy() {
         super.onDestroy()
         if(soundPlayer!=null){

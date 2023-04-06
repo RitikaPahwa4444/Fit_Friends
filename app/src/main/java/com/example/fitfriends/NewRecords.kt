@@ -44,7 +44,6 @@ class NewRecords : AppCompatActivity() {
 
                 if (allDatesList.isNotEmpty()) {
                     // Here if the List size is greater then 0 we will display the item in the recycler view or else we will show the text view that no data is available.
-              //      binding?.newRecordsTV?.visibility = View.VISIBLE
                     binding?.rvHistory?.visibility = View.VISIBLE
                     binding?.tvNoDataAvailable?.visibility = View.GONE
 

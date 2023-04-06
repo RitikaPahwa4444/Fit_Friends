@@ -1,7 +1,7 @@
 package com.example.fitfriends
-/*
+/**
 * This file contains an object defining the list of exercises to be performed
-*/
+**/
 object Constants {
     fun ListOfExercises() : ArrayList<ExerciseModel>{
         val listofExercises = ArrayList<ExerciseModel>()

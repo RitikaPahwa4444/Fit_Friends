@@ -21,7 +21,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     private var exerciseTimer:CountDownTimer?=null
     private var exerciseProgress:Int=0
     private var exerciseList:ArrayList<ExerciseModel>?=null
-    private var currentExerciseIndex = -1 //Invalid index
+    private var currentExerciseIndex = -1 // Invalid index
     private var tts: TextToSpeech?=null
     private var mediaPlayer : MediaPlayer?=null
     private var exerciseAdapter:ExerciseStatusAdapter?=null
@@ -29,16 +29,8 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         super.onCreate(savedInstanceState)
         binding= ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-//        setSupportActionBar(binding?.toolbarExercise)
-//        if(supportActionBar!=null){
-//           supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        }
-//        binding?.toolbarExercise?.setNavigationOnClickListener {
-//        //    customDialogForBackBtn()
-//        }
         exerciseList=Constants.ListOfExercises()
         tts= TextToSpeech(this, this)
-//  binding?.flProgressBar?.visibility= View.INVISIBLE
         setupRestView()
         setRecyclerViewExerciseStatus()
 

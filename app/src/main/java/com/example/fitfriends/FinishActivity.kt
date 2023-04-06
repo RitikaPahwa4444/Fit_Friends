@@ -13,7 +13,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 /**
  * This activity marks the end of the exercises and allows the user to play the game
- * At the same time, the date and time are added to the database*/
+ * At the same time, the date and time are added to the database
+ **/
 class FinishActivity : AppCompatActivity() {
     private var binding: ActivityFinishBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class FinishActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        //get the dao through the database in the application class
+        // get the dao through the database in the application class
         val dao = (application as FitFriendsApp).db.newRecordsDao()
         addDate(dao)
     }
