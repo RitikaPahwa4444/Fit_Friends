@@ -27,7 +27,7 @@ class NewRecords : AppCompatActivity() {
         }
 
         binding?.newRecordsToolbar?.setNavigationOnClickListener {
-            val intent=Intent(this, StartActivity::class.java)
+            val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -59,7 +59,7 @@ class NewRecords : AppCompatActivity() {
 
                     binding?.rvHistory?.adapter = historyAdapter
                 } else {
-              //      binding?.newRecordsTV?.visibility = View.GONE
+                    //      binding?.newRecordsTV?.visibility = View.GONE
                     binding?.rvHistory?.visibility = View.GONE
                     binding?.tvNoDataAvailable?.visibility = View.VISIBLE
                 }
@@ -67,6 +67,7 @@ class NewRecords : AppCompatActivity() {
             }
         }
     }
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null

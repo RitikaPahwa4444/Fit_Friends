@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitfriends.databinding.NewRecordsRowsBinding
 
 class NewRecordsAdapter(private val items: ArrayList<String>) :
-    RecyclerView.Adapter<NewRecordsAdapter.ViewHolder>()  {
+    RecyclerView.Adapter<NewRecordsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             NewRecordsRowsBinding.inflate(
-            LayoutInflater.from(parent.context),parent,false)
+                LayoutInflater.from(parent.context), parent, false
+            )
         )
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val date: String = items.get(position)
@@ -33,9 +35,11 @@ class NewRecordsAdapter(private val items: ArrayList<String>) :
         }
 
     }
+
     override fun getItemCount(): Int {
         return items.size
     }
+
     class ViewHolder(binding: NewRecordsRowsBinding) : RecyclerView.ViewHolder(binding.root) {
         // Holds the TextView that will add each item to
         val llHistoryItemMain = binding.llHistoryItemMain

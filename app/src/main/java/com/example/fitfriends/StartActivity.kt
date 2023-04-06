@@ -20,9 +20,9 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /**
-        * SOUND PLAYER
-        * Plays a sound in the background
-        **/
+         * SOUND PLAYER
+         * Plays a sound in the background
+         **/
         try {
             val soundURI = Uri.parse(
                 "android.resource://com.example.fitfriends/" + R.raw.start_screen
@@ -30,32 +30,31 @@ class StartActivity : AppCompatActivity() {
             soundPlayer = MediaPlayer.create(applicationContext, soundURI)
             soundPlayer?.isLooping = false
             soundPlayer?.start()
-        }
-        catch (e: Exception) {
+        } catch (e: Exception) {
             e.printStackTrace()
         }
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         /**
-        *Change activity when the start frame layout is tapped
-        **/
+         *Change activity when the start frame layout is tapped
+         **/
         binding?.StartFL?.setOnClickListener {
 
-                val intent = Intent(this, ExerciseActivity::class.java)
-                startActivity(intent)
-                finish()
+            val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         /**
-        * Display records set by the kid
-        **/
+         * Display records set by the kid
+         **/
         binding?.NewRecordsBtn?.setOnClickListener {
             val intent = Intent(this, NewRecords::class.java)
             startActivity(intent)
             finish()
         }
         /**
-        * Quit the application when Quit button is pressed
-        **/
+         * Quit the application when Quit button is pressed
+         **/
         binding?.quit?.setOnClickListener {
             finish()
         }
@@ -70,8 +69,8 @@ class StartActivity : AppCompatActivity() {
 
 
     /**
-    * This function sets binding to null to prevent memory leakage and stop the background sound
-    **/
+     * This function sets binding to null to prevent memory leakage and stop the background sound
+     **/
 
     override fun onDestroy() {
         super.onDestroy()

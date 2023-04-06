@@ -7,5 +7,5 @@ import java.math.BigDecimal
 @Entity(tableName = "new-records")
 data class NewRecordsEntity(
     @PrimaryKey
-    val date:String
+    val date: String
 )

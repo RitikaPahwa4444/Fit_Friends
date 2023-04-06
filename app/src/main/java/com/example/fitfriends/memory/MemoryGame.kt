@@ -9,28 +9,32 @@ import com.example.fitfriends.R.drawable.*
 import com.example.fitfriends.databinding.ActivityMemoryGameBinding
 
 class MemoryGame : AppCompatActivity() {
-    private var binding: ActivityMemoryGameBinding?=null
-    private lateinit var buttons:List<ImageButton?>
+    private var binding: ActivityMemoryGameBinding? = null
+    private lateinit var buttons: List<ImageButton?>
     private var singleSelectedCard: Int? = null
-    private lateinit var cards:List<MemoryCard>
+    private lateinit var cards: List<MemoryCard>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMemoryGameBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        buttons = listOf(binding?.imageButton1, binding?.imageButton2,
-        binding?.imageButton3, binding?.imageButton4, binding?.imageButton5,
-        binding?.imageButton6, binding?.imageButton7, binding?.imageButton8)
+        buttons = listOf(
+            binding?.imageButton1, binding?.imageButton2,
+            binding?.imageButton3, binding?.imageButton4, binding?.imageButton5,
+            binding?.imageButton6, binding?.imageButton7, binding?.imageButton8
+        )
 
-        val images = mutableListOf(ic_favorite , ic_flower, ic_giftcard,
-        ic_plane)
+        val images = mutableListOf(
+            ic_favorite, ic_flower, ic_giftcard,
+            ic_plane
+        )
         //Adding all the images twice to make a pair
         images.addAll(images)
         //Randomise the order in the list
         images.shuffle()
 
         //Making memory card model for each index of buttons
-        cards = buttons.indices.map { index->
+        cards = buttons.indices.map { index ->
             MemoryCard(images[index])
         }
 
@@ -54,13 +58,13 @@ class MemoryGame : AppCompatActivity() {
             button?.setImageResource(if (card.isRevealed) card.id else unknown_image_code)
         }
         var count = 0
-        for (card in cards){
-            if (card.isMatched){
+        for (card in cards) {
+            if (card.isMatched) {
                 count++
             }
         }
-        if (count == cards.size){
-            Toast.makeText(this@MemoryGame, "Congratulations! You won 😎", Toast.LENGTH_LONG ).show()
+        if (count == cards.size) {
+            Toast.makeText(this@MemoryGame, "Congratulations! You won 😎", Toast.LENGTH_LONG).show()
             val intent = Intent(this, EndActivity::class.java)
             startActivity(intent)
             finish()
@@ -82,7 +86,7 @@ class MemoryGame : AppCompatActivity() {
         if (singleSelectedCard == null) {
             // 0 or 2 selected cards previously
             restoreCardsBack()
-           singleSelectedCard = position
+            singleSelectedCard = position
         } else {
             // Exactly 1 card was selected previously
             checkIfMatched(singleSelectedCard!!, position)
@@ -91,6 +95,7 @@ class MemoryGame : AppCompatActivity() {
         //We have to flip the selected card in every case
         card.isRevealed = !card.isRevealed
     }
+
     private fun restoreCardsBack() {
         for (card in cards) {
             // If card is not matched, we make all the cards hidden

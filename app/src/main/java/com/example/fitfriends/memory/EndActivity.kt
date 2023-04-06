@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.example.fitfriends.R
 import com.example.fitfriends.StartActivity
+
 /*
 *END THE GAME
 * This activity ends the game and moves back to the start activity
@@ -15,7 +16,7 @@ class EndActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end)
         Handler().postDelayed({
-            val intent= Intent(this, StartActivity::class.java)
+            val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)

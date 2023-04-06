@@ -15,5 +15,5 @@ interface NewRecordsDao {
     suspend fun insert(newRecordsEntity: NewRecordsEntity)
 
     @Query("Select * from `new-records`")
-    fun getDates():Flow<List<NewRecordsEntity>>
+    fun getDates(): Flow<List<NewRecordsEntity>>
 }

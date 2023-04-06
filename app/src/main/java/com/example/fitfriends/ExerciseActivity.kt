@@ -14,119 +14,124 @@ import com.example.fitfriends.databinding.ActivityExerciseBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
-    private var binding:ActivityExerciseBinding?=null
-    private var restTimer:CountDownTimer?=null
-    private var restProgress:Int=0
-    private var exerciseTimer:CountDownTimer?=null
-    private var exerciseProgress:Int=0
-    private var exerciseList:ArrayList<ExerciseModel>?=null
+class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+    private var binding: ActivityExerciseBinding? = null
+    private var restTimer: CountDownTimer? = null
+    private var restProgress: Int = 0
+    private var exerciseTimer: CountDownTimer? = null
+    private var exerciseProgress: Int = 0
+    private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExerciseIndex = -1 // Invalid index
-    private var tts: TextToSpeech?=null
-    private var mediaPlayer : MediaPlayer?=null
-    private var exerciseAdapter:ExerciseStatusAdapter?=null
+    private var tts: TextToSpeech? = null
+    private var mediaPlayer: MediaPlayer? = null
+    private var exerciseAdapter: ExerciseStatusAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityExerciseBinding.inflate(layoutInflater)
+        binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        exerciseList=Constants.ListOfExercises()
-        tts= TextToSpeech(this, this)
+        exerciseList = Constants.ListOfExercises()
+        tts = TextToSpeech(this, this)
         setupRestView()
         setRecyclerViewExerciseStatus()
 
     }
-    private fun setRecyclerViewExerciseStatus(){
+
+    private fun setRecyclerViewExerciseStatus() {
         // This function is specifically made to show the user the total number of exercises and
         // exercise-number he/she is currently on
-        binding?.recyclerViewExerciseStatus?.layoutManager=LinearLayoutManager(this,
-        LinearLayoutManager.HORIZONTAL, false)
+        binding?.recyclerViewExerciseStatus?.layoutManager = LinearLayoutManager(
+            this,
+            LinearLayoutManager.HORIZONTAL, false
+        )
 
-        exerciseAdapter= ExerciseStatusAdapter(exerciseList!!)
-        binding?.recyclerViewExerciseStatus?.adapter=exerciseAdapter
+        exerciseAdapter = ExerciseStatusAdapter(exerciseList!!)
+        binding?.recyclerViewExerciseStatus?.adapter = exerciseAdapter
     }
-    private fun setupRestView(){
+
+    private fun setupRestView() {
         //Setting up the rest view
-        if(mediaPlayer!=null){
+        if (mediaPlayer != null) {
             mediaPlayer!!.stop()
         }
         try {
-            val soundURI= Uri.parse(
-                "android.resource://com.example.fitfriends/"+R.raw.rest_view_sound)
-            mediaPlayer=MediaPlayer.create(applicationContext, soundURI)
-            mediaPlayer?.isLooping=false
+            val soundURI = Uri.parse(
+                "android.resource://com.example.fitfriends/" + R.raw.rest_view_sound
+            )
+            mediaPlayer = MediaPlayer.create(applicationContext, soundURI)
+            mediaPlayer?.isLooping = false
             mediaPlayer?.start()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
-        binding?.frameLayoutProgressBar?.visibility=View.VISIBLE
-        binding?.titleReadyFor?.visibility=View.VISIBLE
-        binding?.textViewExercise?.visibility=View.INVISIBLE
-        binding?.recyclerViewExerciseStatus?.visibility=View.INVISIBLE
-        binding?.imageViewExercise?.visibility=View.INVISIBLE
-        binding?.frameLayoutExerciseView?.visibility=View.INVISIBLE
-        binding?.textViewUpcomingExercise?.visibility=View.VISIBLE
-        binding?.textViewExerciseName?.visibility=View.VISIBLE
-        binding?.textViewExerciseName?.text=exerciseList!![currentExerciseIndex+1].getName()
+        binding?.frameLayoutProgressBar?.visibility = View.VISIBLE
+        binding?.titleReadyFor?.visibility = View.VISIBLE
+        binding?.textViewExercise?.visibility = View.INVISIBLE
+        binding?.recyclerViewExerciseStatus?.visibility = View.INVISIBLE
+        binding?.videoPlayer?.visibility = View.INVISIBLE
+        binding?.frameLayoutExerciseView?.visibility = View.INVISIBLE
+        binding?.textViewUpcomingExercise?.visibility = View.VISIBLE
+        binding?.textViewExerciseName?.visibility = View.VISIBLE
+        binding?.textViewExerciseName?.text = exerciseList!![currentExerciseIndex + 1].getName()
 
-        if(restTimer!=null)
-        {
+        if (restTimer != null) {
             restTimer?.cancel()
-            restProgress=0
+            restProgress = 0
         }
         setupProgressForRest()
     }
 
-    private fun setupExerciseView(){
+    private fun setupExerciseView() {
         // Setting up the exercise View
-        if(mediaPlayer!=null){
+        if (mediaPlayer != null) {
             mediaPlayer!!.stop()
         }
         try {
-            val soundURI= Uri.parse(
-                "android.resource://com.example.fitfriends/"+R.raw.exercise)
-            mediaPlayer=MediaPlayer.create(applicationContext, soundURI)
-            mediaPlayer?.isLooping=false
+            val soundURI = Uri.parse(
+                "android.resource://com.example.fitfriends/" + R.raw.exercise
+            )
+            mediaPlayer = MediaPlayer.create(applicationContext, soundURI)
+            mediaPlayer?.isLooping = false
             mediaPlayer?.start()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
-        binding?.frameLayoutProgressBar?.visibility=View.INVISIBLE
-        binding?.titleReadyFor?.visibility=View.INVISIBLE
-        binding?.textViewExercise?.visibility=View.VISIBLE
-        binding?.imageViewExercise?.visibility=View.VISIBLE
-        binding?.frameLayoutExerciseView?.visibility=View.VISIBLE
-        binding?.recyclerViewExerciseStatus?.visibility=View.VISIBLE
+        binding?.frameLayoutProgressBar?.visibility = View.INVISIBLE
+        binding?.titleReadyFor?.visibility = View.INVISIBLE
+        binding?.textViewExercise?.visibility = View.VISIBLE
+        binding?.videoPlayer?.visibility = View.VISIBLE
+        binding?.frameLayoutExerciseView?.visibility = View.VISIBLE
+        binding?.recyclerViewExerciseStatus?.visibility = View.VISIBLE
 
-        binding?.textViewUpcomingExercise?.visibility=View.INVISIBLE
-        binding?.textViewExerciseName?.visibility=View.INVISIBLE
-        if(exerciseTimer!=null)
-        {
+        binding?.textViewUpcomingExercise?.visibility = View.INVISIBLE
+        binding?.textViewExerciseName?.visibility = View.INVISIBLE
+        if (exerciseTimer != null) {
             exerciseTimer?.cancel()
-            exerciseProgress=0
+            exerciseProgress = 0
         }
 
         // Speaking out the name of the exercise to be performed
         speakOut(exerciseList!![currentExerciseIndex].getName())
-        binding?.imageViewExercise?.setImageResource(exerciseList!![currentExerciseIndex].getImage())
-        binding?.textViewExercise?.text=exerciseList!![currentExerciseIndex].getName()
+        // TODO:  binding?.videoPlayer?.setImageResource(exerciseList!![currentExerciseIndex].getImage())
+        binding?.textViewExercise?.text = exerciseList!![currentExerciseIndex].getName()
         setupExerciseProgress()
     }
-    private fun setupProgressForRest(){
+
+    private fun setupProgressForRest() {
         // Setting up the progress bar of the Rest View : 10 seconds total
         // After every one second the progress bar gets updated
-        binding?.progressBarReady?.progress=restProgress
-        restTimer=object:CountDownTimer(10000,1000){
+        binding?.progressBarReady?.progress = restProgress
+        restTimer = object : CountDownTimer(10000, 1000) {
             override fun onTick(p0: Long) {
                 restProgress++
-                binding?.progressBarReady?.progress=10-restProgress
+                binding?.progressBarReady?.progress = 10 - restProgress
                 // Display the time left inside the circle
-                binding?.textViewTimer?.text=(10-restProgress).toString()
+                binding?.textViewTimer?.text = (10 - restProgress).toString()
             }
 
             override fun onFinish() {
                 currentExerciseIndex++
-            //    Toast.makeText(this@ExerciseActivity, "We'll start the exercise now", Toast.LENGTH_LONG).show()
+                //    Toast.makeText(this@ExerciseActivity, "We'll start the exercise now", Toast.LENGTH_LONG).show()
                 // Selecting each exercise one by one
                 exerciseList!![currentExerciseIndex].setIsSelected(true)
                 exerciseAdapter!!.notifyDataSetChanged()
@@ -135,6 +140,7 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         }.start()
 
     }
+
     private fun setupExerciseProgress() {
         // Setting up the progress bar of the Exercise View : 30 seconds total
         // After every one second, the progress bar gets updated
@@ -157,8 +163,8 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
                     exerciseAdapter!!.notifyDataSetChanged()
                     setupRestView()
                 } else {
-                        // When the exercises are complete, that is, when currentExerciseIndex
-                        // exceeds the size of the exerciseList, congratulate the user
+                    // When the exercises are complete, that is, when currentExerciseIndex
+                    // exceeds the size of the exerciseList, congratulate the user
                     Toast.makeText(this@ExerciseActivity, "Congratulations!!", Toast.LENGTH_LONG)
                         .show()
 
@@ -175,39 +181,37 @@ class ExerciseActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 
     override fun onDestroy() {
         super.onDestroy()
-        if(restTimer!=null)
-        {
+        if (restTimer != null) {
             restTimer?.cancel()
-            restProgress=0
+            restProgress = 0
         }
-        if(mediaPlayer!=null){
+        if (mediaPlayer != null) {
             mediaPlayer!!.stop()
         }
-        if(exerciseTimer!=null){
+        if (exerciseTimer != null) {
             exerciseTimer?.cancel()
-            exerciseProgress=0
+            exerciseProgress = 0
         }
-        if(tts!=null)
-        {
+        if (tts != null) {
             tts?.stop()
             tts?.shutdown()
         }
-        binding=null
+        binding = null
     }
 
     override fun onInit(status: Int) {
         // If the language is not supported or the required data is missing, we let the user know
-        if(status==TextToSpeech.SUCCESS){
-            val result=tts!!.setLanguage(Locale.US)
-            if(result==TextToSpeech.LANG_MISSING_DATA || result==TextToSpeech.LANG_NOT_SUPPORTED)
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED)
                 Toast.makeText(this, "Language not supported", Toast.LENGTH_LONG).show()
-        }
-        else{
+        } else {
             Toast.makeText(this, "Initialisation failed!", Toast.LENGTH_LONG).show()
 
         }
     }
-    private fun speakOut(text:String){
+
+    private fun speakOut(text: String) {
         // This function is responsible for speaking out the string that is passed to it as an
         // argument
         tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, " ")

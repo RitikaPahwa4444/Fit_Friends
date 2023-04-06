@@ -11,6 +11,7 @@ import com.example.fitfriends.memory.MemoryGameStart
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
+
 /**
  * This activity marks the end of the exercises and allows the user to play the game
  * At the same time, the date and time are added to the database
@@ -22,12 +23,12 @@ class FinishActivity : AppCompatActivity() {
         binding = ActivityFinishBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         binding?.btnFinish?.setOnClickListener {
-            val intent= Intent(this, MemoryGameStart::class.java)
+            val intent = Intent(this, MemoryGameStart::class.java)
             startActivity(intent)
             finish()
         }
         binding?.btnSkip?.setOnClickListener {
-            val intent= Intent(this, StartActivity::class.java)
+            val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -53,4 +54,4 @@ class FinishActivity : AppCompatActivity() {
             ) // Printed in log which is printed if the complete execution is done.
         }
     }
-    }
+}

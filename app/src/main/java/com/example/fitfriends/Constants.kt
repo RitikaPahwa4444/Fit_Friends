@@ -1,14 +1,16 @@
 package com.example.fitfriends
+
 /**
-* This file contains an object defining the list of exercises to be performed
-**/
+ * This file contains an object defining the list of exercises to be performed
+ **/
 object Constants {
-    fun ListOfExercises() : ArrayList<ExerciseModel>{
+    fun ListOfExercises(): ArrayList<ExerciseModel> {
         val listofExercises = ArrayList<ExerciseModel>()
         val backTurns = ExerciseModel(
             1,
             "Back Turns",
             R.drawable.backturns,
+            "add video",
             false,
             false
         )
@@ -17,6 +19,7 @@ object Constants {
             2,
             "Jumping Jacks",
             R.drawable.jumpingjacks,
+            "add video",
             false,
             false
         )
@@ -25,6 +28,7 @@ object Constants {
             3,
             "Side Bends",
             R.drawable.sidebends,
+            "add video",
             false,
             false
         )
@@ -33,6 +37,7 @@ object Constants {
             4,
             "Side Deep Squats",
             R.drawable.sidedeepsquats,
+            "add video",
             false,
             false
         )
@@ -41,6 +46,7 @@ object Constants {
             5,
             "Skip Hops",
             R.drawable.skihops,
+            "add video",
             false,
             false
         )
@@ -49,6 +55,7 @@ object Constants {
             6,
             "Prayer Pushes",
             R.drawable.prayerpushes,
+            "add video",
             false,
             false
         )
@@ -57,6 +64,7 @@ object Constants {
             7,
             "Side Leg Raises",
             R.drawable.legraises,
+            "add video",
             false,
             false
         )
@@ -65,6 +73,7 @@ object Constants {
             8,
             "Step Back Jacks",
             R.drawable.stepbackjacks,
+            "add video",
             false,
             false
         )
@@ -73,6 +82,7 @@ object Constants {
             9,
             "Knee Raises",
             R.drawable.kneeraises,
+            "add video",
             false,
             false
         )

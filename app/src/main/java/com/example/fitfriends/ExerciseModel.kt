@@ -1,36 +1,45 @@
 package com.example.fitfriends
+
 /**
  * This class is a model class and acts as a template for the list of exercises to be displayed
  **/
-class ExerciseModel (
+class ExerciseModel(
     private var id: Int,
-    private var name:String,
+    private var name: String,
     private var image: Int,
+    private var video: String,
     private var isCompleted: Boolean = false,
     private var isSelected: Boolean = false
-    ){
+) {
     fun getId(): Int {
         return id
     }
-    fun getIsCompleted():Boolean{
+
+    fun getIsCompleted(): Boolean {
         return isCompleted
     }
-    fun setIsCompleted(isComplete: Boolean){
+
+    fun setIsCompleted(isComplete: Boolean) {
         this.isCompleted = isCompleted
     }
-    fun getIsSelected():Boolean{
+
+    fun getIsSelected(): Boolean {
         return isSelected
     }
-    fun setIsSelected(isSelected: Boolean){
+
+    fun setIsSelected(isSelected: Boolean) {
         this.isSelected = isSelected
     }
-    fun setName(name: String){
+
+    fun setName(name: String) {
         this.name = name
     }
-    fun getName(): String{
+
+    fun getName(): String {
         return name
     }
-    fun getImage():Int{
+
+    fun getImage(): Int {
         return image
     }
 }
