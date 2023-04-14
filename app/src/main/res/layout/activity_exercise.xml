@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ExerciseActivity">
 
+    <!--    <androidx.appcompat.widget.Toolbar-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        android:id="@+id/toolbar_exercise"-->
+    <!--        android:background="@color/white"-->
+    <!--        app:titleTextColor="@color/DarkBlue"-->
+    <!--        android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:backgroundTint="@color/Pink"-->
+    <!--        android:layout_height="?android:attr/actionBarSize" />-->
+
     <TextView
         android:id="@+id/title_ready_for"
         android:text="GET READY FOR "
@@ -88,24 +98,15 @@
         android:layout_height="wrap_content"
         android:visibility="visible" />
 
-    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-        android:id="@+id/video_player"
+    <ImageView
+        android:id="@+id/image_view_exercise"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/handclaps"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_exercise"
-        app:layout_constraintTop_toTopOf="parent"
-        app:autoPlay="false"
-        />
-<!--    <ImageView-->
-<!--        android:id="@+id/image_view_exercise"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:scaleType="fitXY"-->
-<!--        android:src="@drawable/handclaps"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/text_view_exercise"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+        app:layout_constraintBottom_toTopOf="@id/text_view_exercise"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fitfriends">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".FitFriendsApp"
         android:allowBackup="true"
@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitFriends">
+        <activity
+            android:name=".TutorialActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+            android:exported="false" />
         <activity
             android:name=".memory.EndActivity"
             android:exported="false" />

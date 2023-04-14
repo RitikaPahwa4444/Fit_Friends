@@ -5,14 +5,8 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.fitfriends.databinding.ActivityStartBinding
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 
 class StartActivity : AppCompatActivity() {
     private var soundPlayer: MediaPlayer? = null

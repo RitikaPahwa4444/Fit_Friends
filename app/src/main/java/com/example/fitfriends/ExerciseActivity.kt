@@ -1,18 +1,19 @@
 package com.example.fitfriends
 
+import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitfriends.databinding.ActivityExerciseBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var binding: ActivityExerciseBinding? = null
@@ -68,7 +69,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.titleReadyFor?.visibility = View.VISIBLE
         binding?.textViewExercise?.visibility = View.INVISIBLE
         binding?.recyclerViewExerciseStatus?.visibility = View.INVISIBLE
-        binding?.videoPlayer?.visibility = View.INVISIBLE
+        binding?.imageViewExercise?.visibility = View.INVISIBLE
         binding?.frameLayoutExerciseView?.visibility = View.INVISIBLE
         binding?.textViewUpcomingExercise?.visibility = View.VISIBLE
         binding?.textViewExerciseName?.visibility = View.VISIBLE
@@ -79,6 +80,24 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             restProgress = 0
         }
         setupProgressForRest()
+    }
+
+    private val tutorialActivityResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                // Check if the tutorial is finished
+                val isFinished = data?.getBooleanExtra("IS_FINISHED", false) ?: false
+                if (isFinished) {
+                    setupExerciseView()
+                }
+            }
+        }
+
+    private fun setUpVideoPlayer() {
+        val intent = Intent(this, TutorialActivity::class.java)
+        intent.putExtra("INDEX", currentExerciseIndex)
+        tutorialActivityResultLauncher.launch(intent)
     }
 
     private fun setupExerciseView() {
@@ -99,7 +118,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.frameLayoutProgressBar?.visibility = View.INVISIBLE
         binding?.titleReadyFor?.visibility = View.INVISIBLE
         binding?.textViewExercise?.visibility = View.VISIBLE
-        binding?.videoPlayer?.visibility = View.VISIBLE
+        binding?.imageViewExercise?.visibility = View.VISIBLE
         binding?.frameLayoutExerciseView?.visibility = View.VISIBLE
         binding?.recyclerViewExerciseStatus?.visibility = View.VISIBLE
 
@@ -112,7 +131,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         // Speaking out the name of the exercise to be performed
         speakOut(exerciseList!![currentExerciseIndex].getName())
-        // TODO:  binding?.videoPlayer?.setImageResource(exerciseList!![currentExerciseIndex].getImage())
+        binding?.imageViewExercise?.setImageResource(exerciseList!![currentExerciseIndex].getImage())
         binding?.textViewExercise?.text = exerciseList!![currentExerciseIndex].getName()
         setupExerciseProgress()
     }
@@ -121,7 +140,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Setting up the progress bar of the Rest View : 10 seconds total
         // After every one second the progress bar gets updated
         binding?.progressBarReady?.progress = restProgress
-        restTimer = object : CountDownTimer(10000, 1000) {
+        restTimer = object : CountDownTimer(1000, 1000) {
             override fun onTick(p0: Long) {
                 restProgress++
                 binding?.progressBarReady?.progress = 10 - restProgress
@@ -131,11 +150,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 currentExerciseIndex++
-                //    Toast.makeText(this@ExerciseActivity, "We'll start the exercise now", Toast.LENGTH_LONG).show()
                 // Selecting each exercise one by one
                 exerciseList!![currentExerciseIndex].setIsSelected(true)
                 exerciseAdapter!!.notifyDataSetChanged()
-                setupExerciseView()
+                setUpVideoPlayer()
             }
         }.start()
 
@@ -145,7 +163,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Setting up the progress bar of the Exercise View : 30 seconds total
         // After every one second, the progress bar gets updated
         binding?.progressBarExercise?.progress = exerciseProgress
-        exerciseTimer = object : CountDownTimer(30000, 1000) {
+        exerciseTimer = object : CountDownTimer(3000, 1000) {
             override fun onTick(p0: Long) {
                 exerciseProgress++
                 binding?.progressBarExercise?.progress = 30 - exerciseProgress

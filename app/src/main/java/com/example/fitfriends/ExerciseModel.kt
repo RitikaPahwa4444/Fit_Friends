@@ -8,6 +8,8 @@ class ExerciseModel(
     private var name: String,
     private var image: Int,
     private var video: String,
+    private var startTime: Int,
+    private var endTime: Int,
     private var isCompleted: Boolean = false,
     private var isSelected: Boolean = false
 ) {
@@ -41,5 +43,17 @@ class ExerciseModel(
 
     fun getImage(): Int {
         return image
+    }
+
+    fun getVideoId(): String{
+        return video
+    }
+
+    fun getVideoStartTime(): Int {
+        return startTime
+    }
+
+    fun getVideoEndTime(): Int {
+        return endTime
     }
 }

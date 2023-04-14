@@ -10,7 +10,9 @@ object Constants {
             1,
             "Back Turns",
             R.drawable.backturns,
-            "add video",
+            "bIthHcAxehg",
+            45,
+            84,
             false,
             false
         )
@@ -19,7 +21,9 @@ object Constants {
             2,
             "Jumping Jacks",
             R.drawable.jumpingjacks,
-            "add video",
+            "bIthHcAxehg",
+            233,
+            267,
             false,
             false
         )
@@ -28,7 +32,9 @@ object Constants {
             3,
             "Side Bends",
             R.drawable.sidebends,
-            "add video",
+            "V61R5rGhiKk",
+            369,
+            379,
             false,
             false
         )
@@ -37,16 +43,20 @@ object Constants {
             4,
             "Side Deep Squats",
             R.drawable.sidedeepsquats,
-            "add video",
+            "bIthHcAxehg",
+            163,
+            203,
             false,
             false
         )
         listofExercises.add(sideDeepSquats)
         val skipHops = ExerciseModel(
             5,
-            "Skip Hops",
+            "Ski Hops",
             R.drawable.skihops,
-            "add video",
+            "bIthHcAxehg",
+            115,
+            136,
             false,
             false
         )
@@ -55,7 +65,9 @@ object Constants {
             6,
             "Prayer Pushes",
             R.drawable.prayerpushes,
-            "add video",
+            "V61R5rGhiKk",
+            216,
+            239,
             false,
             false
         )
@@ -64,7 +76,9 @@ object Constants {
             7,
             "Side Leg Raises",
             R.drawable.legraises,
-            "add video",
+            "V61R5rGhiKk",
+            318,
+            328,
             false,
             false
         )
@@ -73,7 +87,9 @@ object Constants {
             8,
             "Step Back Jacks",
             R.drawable.stepbackjacks,
-            "add video",
+            "B9a3GzZvlcI",
+            597,
+            627,
             false,
             false
         )
@@ -82,7 +98,9 @@ object Constants {
             9,
             "Knee Raises",
             R.drawable.kneeraises,
-            "add video",
+            "V61R5rGhiKk",
+            137,
+            147,
             false,
             false
         )

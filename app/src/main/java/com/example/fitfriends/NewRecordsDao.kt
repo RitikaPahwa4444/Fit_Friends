@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface NewRecordsDao {
 
     @Insert
-    suspend fun insert(newRecordsEntity: NewRecordsEntity)
+    fun insert(newRecordsEntity: NewRecordsEntity)
 
     @Query("Select * from `new-records`")
     fun getDates(): Flow<List<NewRecordsEntity>>

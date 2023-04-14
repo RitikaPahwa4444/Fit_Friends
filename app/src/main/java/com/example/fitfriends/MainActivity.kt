@@ -3,7 +3,6 @@ package com.example.fitfriends
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
@@ -11,7 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.fitfriends.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * ANIMATED SPLASH SCREEN
