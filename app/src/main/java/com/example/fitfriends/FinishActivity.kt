@@ -5,9 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.fitfriends.databinding.ActivityFinishBinding
 import com.example.fitfriends.memory.MemoryGameStart
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,7 +46,7 @@ class FinishActivity : AppCompatActivity() {
         val date = sdf.format(dateTime) // dateTime is formatted in the given format.
         Log.e("Formatted Date : ", "" + date) // Formatted date is printed in the log.
 
-        GlobalScope.launch {
+        lifecycleScope.launch {
             newRecordsDao.insert(NewRecordsEntity(date)) // Add date function is called.
             Log.e(
                 "Date : ",
