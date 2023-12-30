@@ -30,9 +30,6 @@
             android:name=".NewRecords"
             android:exported="true" />
         <activity
-            android:name=".BMIActivity"
-            android:exported="true" />
-        <activity
             android:name=".StartActivity"
             android:exported="true" />
         <activity
